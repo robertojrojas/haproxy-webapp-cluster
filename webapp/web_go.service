@@ -1,0 +1,10 @@
+[Unit]
+Description=Simple Go Web App Service
+  
+[Service]
+ExecStart=/vagrant/webapp/run.sh
+#ExecStop=kill -9 $(cat /tmp/web_go.pid); rm /tmp/web_go.pid
+ExecStop=/bin/kill $(cat /tmp/web_go.pid)
+  
+[Install]
+WantedBy=multi-user.target
